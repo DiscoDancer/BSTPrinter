@@ -1,2 +1,5 @@
 # BST Printer
-A tool for printing binary search tree.
+A .NET tool for printing binary search tree.
+
+---
+Inspired by https://github.com/msbanik/drawtree
