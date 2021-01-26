@@ -1,2 +1,2 @@
 # BSTPrinter
-A tool for printing binary search tree
+A tool for printing binary search tree.
