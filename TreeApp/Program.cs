@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Threading.Channels;
 using Core;
-using Infrastructure;
+using Infrastructure.AsciiPrint;
 
 namespace TreeApp
 {
-    class Program
+    internal class Program
     {
         private static void InorderTraversal(Node root)
         {
@@ -46,7 +45,7 @@ namespace TreeApp
             TreeFunctions.Insert(tree, 1);
             TreeFunctions.Insert(tree, 4);
 
-            AsciiTreeFunctions.DrawTree(tree);
+            new AsciiTreePrinter().PrintTree(tree);
         }
 
         private static void RunTheirSample()
@@ -66,10 +65,10 @@ namespace TreeApp
 
             // InorderTraversal(tree);
 
-            AsciiTreeFunctions.DrawTree(tree);
+            new AsciiTreePrinter().PrintTree(tree);
         }
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             RunTheirSample();
         }

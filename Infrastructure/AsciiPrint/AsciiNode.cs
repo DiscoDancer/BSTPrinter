@@ -1,4 +1,4 @@
-﻿namespace Core
+﻿namespace Infrastructure.AsciiPrint
 {
     public class AsciiNode
     {

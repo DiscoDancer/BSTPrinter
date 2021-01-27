@@ -1,5 +1,6 @@
 ﻿using Core;
 using Infrastructure;
+using Infrastructure.AsciiPrint;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests
@@ -16,7 +17,7 @@ namespace UnitTests
             TreeFunctions.Insert(tree, 4);
 
             // action
-            var root = AsciiTreeFunctions.BuildAsciiTree(tree);
+            var root = AsciiTreePrinter.BuildAsciiTree(tree);
 
             // assert
             Assert.AreEqual(root.Label, "3");
