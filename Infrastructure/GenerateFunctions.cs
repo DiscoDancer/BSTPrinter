@@ -59,7 +59,7 @@ namespace Infrastructure
             }
 
             var moreValues = randomArr.Skip(1).ToArray();
-            moreValues.ForEach(i => TreeFunctions.Insert(root, i));
+            moreValues.ForEach(i => TreeFunctions.Add(root, i));
 
             return (root, randomArr);
         }

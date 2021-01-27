@@ -77,11 +77,11 @@ namespace UnitTests
             var (root, array) = result;
 
             // assert
-            Assert.IsNotNull(TreeFunctions.Find(root, 1));
-            Assert.IsNotNull(TreeFunctions.Find(root, 2));
-            Assert.IsNotNull(TreeFunctions.Find(root, 3));
-            Assert.IsNotNull(TreeFunctions.Find(root, 4));
-            Assert.IsNotNull(TreeFunctions.Find(root, 5));
+            Assert.IsNotNull(TreeFunctions.Search(root, 1));
+            Assert.IsNotNull(TreeFunctions.Search(root, 2));
+            Assert.IsNotNull(TreeFunctions.Search(root, 3));
+            Assert.IsNotNull(TreeFunctions.Search(root, 4));
+            Assert.IsNotNull(TreeFunctions.Search(root, 5));
         }
     }
 }

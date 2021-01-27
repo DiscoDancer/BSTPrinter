@@ -13,8 +13,8 @@ namespace UnitTests
         {
             // assign
             var tree = new Node(3);
-            TreeFunctions.Insert(tree, 1);
-            TreeFunctions.Insert(tree, 4);
+            TreeFunctions.Add(tree, 1);
+            TreeFunctions.Add(tree, 4);
 
             // action
             var root = AsciiTreePrinter.BuildAsciiTree(tree);

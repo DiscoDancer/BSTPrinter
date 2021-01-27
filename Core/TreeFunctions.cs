@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Core
 {
@@ -38,7 +40,7 @@ namespace Core
             return node;
         }
 
-        public static Node Find(Node root, int value)
+        public static Node Search(Node root, int value)
         {
             var node = root;
 
@@ -53,7 +55,31 @@ namespace Core
             return null;
         }
 
-        public static Node Insert(Node root, int value)
+        public static Node CreateFromArray(int[] values)
+        {
+            if (values == null)
+            {
+                return null;
+            }
+
+            var root = new Node(values.First());
+            var rest = values.Skip(1).ToArray();
+            Add(root, rest);
+
+            return root;
+        }
+
+        public static Node Add(Node root, int[] values)
+        {
+            foreach (var value in values)
+            {
+                Add(root, value);
+            }
+
+            return root;
+        }
+
+        public static Node Add(Node root, int value)
         {
             return InsertWithHeightInner(root, value, root.Height);
 

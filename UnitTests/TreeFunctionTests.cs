@@ -39,11 +39,11 @@ namespace UnitTests
         {
             // assign
             var tree = new Node(3);
-            TreeFunctions.Insert(tree, 1);
-            TreeFunctions.Insert(tree, 4);
+            TreeFunctions.Add(tree, 1);
+            TreeFunctions.Add(tree, 4);
 
             // action
-            var found = TreeFunctions.Find(tree ,3);
+            var found = TreeFunctions.Search(tree ,3);
 
             // assert
             Assert.AreSame(tree, found);
@@ -56,9 +56,49 @@ namespace UnitTests
             var tree = new Node(3);
 
             //action
-            TreeFunctions.Insert(tree, 1);
-            TreeFunctions.Insert(tree, 4);
-            TreeFunctions.Insert(tree, 5);
+            TreeFunctions.Add(tree, 1);
+            TreeFunctions.Add(tree, 4);
+            TreeFunctions.Add(tree, 5);
+
+            // assert values
+            Assert.AreEqual(tree.Value, 3);
+            Assert.AreEqual(tree.Left.Value, 1);
+            Assert.AreEqual(tree.Right.Value, 4);
+            Assert.AreEqual(tree.Right.Right.Value, 5);
+
+            // assert height
+            Assert.AreEqual(tree.Height, Node.RootHeight);
+            Assert.AreEqual(tree.Left.Height, Node.RootHeight + 1);
+            Assert.AreEqual(tree.Right.Right.Height, Node.RootHeight + 1 + 1);
+        }
+
+        [TestMethod]
+        public void TestCreateFromArray()
+        {
+            // assign
+            // action
+            var tree = TreeFunctions.CreateFromArray(new[] {3, 1, 4, 5});
+
+            // assert values
+            Assert.AreEqual(tree.Value, 3);
+            Assert.AreEqual(tree.Left.Value, 1);
+            Assert.AreEqual(tree.Right.Value, 4);
+            Assert.AreEqual(tree.Right.Right.Value, 5);
+
+            // assert height
+            Assert.AreEqual(tree.Height, Node.RootHeight);
+            Assert.AreEqual(tree.Left.Height, Node.RootHeight + 1);
+            Assert.AreEqual(tree.Right.Right.Height, Node.RootHeight + 1 + 1);
+        }
+
+        [TestMethod]
+        public void TestInsertMultiple()
+        {
+            // assign
+            var tree = new Node(3);
+
+            //action
+            TreeFunctions.Add(tree, new[] {1,4,5});
 
             // assert values
             Assert.AreEqual(tree.Value, 3);
@@ -82,12 +122,12 @@ namespace UnitTests
             var result = TreeFunctions.Delete(tree, 4);
 
             // assert
-            Assert.IsNull(TreeFunctions.Find(result, 4));
+            Assert.IsNull(TreeFunctions.Search(result, 4));
 
-            Assert.IsNotNull(TreeFunctions.Find(result, 1));
-            Assert.IsNotNull(TreeFunctions.Find(result, 2));
-            Assert.IsNotNull(TreeFunctions.Find(result, 3));
-            Assert.IsNotNull(TreeFunctions.Find(result, 5));
+            Assert.IsNotNull(TreeFunctions.Search(result, 1));
+            Assert.IsNotNull(TreeFunctions.Search(result, 2));
+            Assert.IsNotNull(TreeFunctions.Search(result, 3));
+            Assert.IsNotNull(TreeFunctions.Search(result, 5));
         }
 
         [TestMethod]
@@ -95,9 +135,9 @@ namespace UnitTests
         {
             // assign
             var tree = new Node(3);
-            TreeFunctions.Insert(tree, 1);
-            TreeFunctions.Insert(tree, 4);
-            TreeFunctions.Insert(tree, 5);
+            TreeFunctions.Add(tree, 1);
+            TreeFunctions.Add(tree, 4);
+            TreeFunctions.Add(tree, 5);
 
             // action
             var inorder = TreeFunctions.ConvertToInOrderNodes(tree);
