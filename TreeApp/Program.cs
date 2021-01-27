@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Channels;
 using Core;
 using Infrastructure;
 
@@ -6,6 +7,39 @@ namespace TreeApp
 {
     class Program
     {
+        private static void InorderTraversal(Node root)
+        {
+            var node = root;
+            if (node != null)
+            {
+                InorderTraversal(node.Left);
+                Console.WriteLine(node.Value);
+                InorderTraversal(node.Right);
+            }
+        }
+
+        private static void PreorderTraversal(Node root)
+        {
+            var node = root;
+            if (node != null)
+            {
+                Console.WriteLine(node.Value);
+                PreorderTraversal(node.Left);
+                PreorderTraversal(node.Right);
+            }
+        }
+
+        private static void PostorderTraversal(Node root)
+        {
+            var node = root;
+            if (node != null)
+            {
+                PostorderTraversal(node.Left);
+                PostorderTraversal(node.Right);
+                Console.WriteLine(node.Value);
+            }
+        }
+
         private static void RunMySample()
         {
             var tree = new Node(3);
@@ -28,7 +62,9 @@ namespace TreeApp
             TreeFunctions.Insert(tree, 155);
             TreeFunctions.Insert(tree, 13);
             TreeFunctions.Insert(tree, 17);
-            TreeFunctions.Insert(tree, 203);
+            TreeFunctions.Insert(tree, 303);
+
+            // InorderTraversal(tree);
 
             AsciiTreeFunctions.DrawTree(tree);
         }
