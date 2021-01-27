@@ -1,8 +1,4 @@
-﻿using System;
-using Core;
-using Infrastructure;
-using Infrastructure.AsciiPrint;
-using Scripts;
+﻿using Scripts;
 
 namespace TreeApp
 {
@@ -10,7 +6,8 @@ namespace TreeApp
     {
         private static void Main(string[] args)
         {
-            StaticExample.Run();
+            // StaticExample.Run();
+            RandomTree.Run();
         }
     }
 }
