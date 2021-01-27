@@ -61,8 +61,8 @@ namespace UnitTests
             TreeFunctions.Insert(tree, 5);
 
             // assert values
-            Assert.AreEqual(tree.Left.Value, 1);
             Assert.AreEqual(tree.Value, 3);
+            Assert.AreEqual(tree.Left.Value, 1);
             Assert.AreEqual(tree.Right.Value, 4);
             Assert.AreEqual(tree.Right.Right.Value, 5);
 
@@ -88,6 +88,26 @@ namespace UnitTests
             Assert.IsNotNull(TreeFunctions.Find(result, 2));
             Assert.IsNotNull(TreeFunctions.Find(result, 3));
             Assert.IsNotNull(TreeFunctions.Find(result, 5));
+        }
+
+        [TestMethod]
+        public void TestConvertToInOrderNodes()
+        {
+            // assign
+            var tree = new Node(3);
+            TreeFunctions.Insert(tree, 1);
+            TreeFunctions.Insert(tree, 4);
+            TreeFunctions.Insert(tree, 5);
+
+            // action
+            var inorder = TreeFunctions.ConvertToInOrderNodes(tree);
+
+            // assert
+            Assert.AreEqual(inorder.Length, 4);
+            Assert.AreEqual(inorder[0].Value, 1);
+            Assert.AreEqual(inorder[1].Value, 3);
+            Assert.AreEqual(inorder[2].Value, 4);
+            Assert.AreEqual(inorder[3].Value, 5);
         }
     }
 }

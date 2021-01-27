@@ -1,5 +1,6 @@
 ﻿using System;
 using Core;
+using Infrastructure;
 using Infrastructure.AsciiPrint;
 
 namespace TreeApp
@@ -44,8 +45,10 @@ namespace TreeApp
             var tree = new Node(3);
             TreeFunctions.Insert(tree, 1);
             TreeFunctions.Insert(tree, 4);
+            TreeFunctions.Insert(tree, 5);
 
-            new AsciiTreePrinter().PrintTree(tree);
+            // new AsciiTreePrinter().PrintTree(tree);
+            new FlatPrinter().PrintTree(tree);
         }
 
         private static void RunTheirSample()
@@ -65,12 +68,13 @@ namespace TreeApp
 
             // InorderTraversal(tree);
 
-            new AsciiTreePrinter().PrintTree(tree);
+            // new AsciiTreePrinter().PrintTree(tree);
+            new FlatPrinter().PrintTree(tree);
         }
 
         private static void Main(string[] args)
         {
-            RunTheirSample();
+            RunMySample();
         }
     }
 }

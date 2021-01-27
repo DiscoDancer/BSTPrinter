@@ -1,7 +1,25 @@
-﻿namespace Core
+﻿using System.Collections.Generic;
+
+namespace Core
 {
     public static class TreeFunctions
     {
+        public static Node[] ConvertToInOrderNodes(Node root)
+        {
+            var list = new List<Node>();
+            ConvertToInOrderNodesInner(root, list);
+            return list.ToArray();
+
+            static void ConvertToInOrderNodesInner(Node root, ICollection<Node> list)
+            {
+                var node = root;
+                if (node == null) return;
+                ConvertToInOrderNodesInner(node.Left, list);
+                list.Add(node);
+                ConvertToInOrderNodesInner(node.Right, list);
+            }
+        }
+
         public static Node FindMin(Node root)
         {
             var node = root;
