@@ -37,19 +37,24 @@
 
         public static Node Insert(Node root, int value)
         {
-            var node = root;
+            return InsertWithHeightInner(root, value, root.Height);
 
-            if (node == null) return new Node(value);
+            static Node InsertWithHeightInner(Node root, int value, int height)
+            {
+                var node = root;
 
-            if (value < node.Value)
-                node.Left = Insert(node.Left, value);
+                if (node == null) return new Node(value, height);
 
-            else if (value > node.Value)
-                node.Right = Insert(node.Right, value);
-            else
+                if (value < node.Value)
+                    node.Left = InsertWithHeightInner(node.Left, value, height + 1);
+
+                else if (value > node.Value)
+                    node.Right = InsertWithHeightInner(node.Right, value, height + 1);
+                else
+                    return node;
+
                 return node;
-
-            return node;
+            }
         }
 
         public static Node Delete(Node root, int value)

@@ -60,11 +60,16 @@ namespace UnitTests
             TreeFunctions.Insert(tree, 4);
             TreeFunctions.Insert(tree, 5);
 
-            // assert
+            // assert values
             Assert.AreEqual(tree.Left.Value, 1);
             Assert.AreEqual(tree.Value, 3);
             Assert.AreEqual(tree.Right.Value, 4);
             Assert.AreEqual(tree.Right.Right.Value, 5);
+
+            // assert height
+            Assert.AreEqual(tree.Height, Node.RootHeight);
+            Assert.AreEqual(tree.Left.Height, Node.RootHeight + 1);
+            Assert.AreEqual(tree.Right.Right.Height, Node.RootHeight + 1 + 1);
         }
 
         [TestMethod]
