@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 
 namespace Core
@@ -57,10 +56,7 @@ namespace Core
 
         public static Node CreateFromArray(int[] values)
         {
-            if (values == null)
-            {
-                return null;
-            }
+            if (values == null) return null;
 
             var root = new Node(values.First());
             var rest = values.Skip(1).ToArray();
@@ -71,10 +67,7 @@ namespace Core
 
         public static Node Add(Node root, int[] values)
         {
-            foreach (var value in values)
-            {
-                Add(root, value);
-            }
+            foreach (var value in values) Add(root, value);
 
             return root;
         }

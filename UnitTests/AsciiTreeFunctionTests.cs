@@ -1,5 +1,4 @@
 ﻿using Core;
-using Infrastructure;
 using Infrastructure.AsciiPrint;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

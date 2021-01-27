@@ -1,5 +1,4 @@
 ﻿using System;
-using Core;
 using Infrastructure;
 using Infrastructure.AsciiPrint;
 

@@ -7,7 +7,6 @@ namespace UnitTests
     [TestClass]
     public class TreeFunctionTests
     {
-
         [TestMethod]
         public void TestFindMin()
         {
@@ -43,7 +42,7 @@ namespace UnitTests
             TreeFunctions.Add(tree, 4);
 
             // action
-            var found = TreeFunctions.Search(tree ,3);
+            var found = TreeFunctions.Search(tree, 3);
 
             // assert
             Assert.AreSame(tree, found);
@@ -98,7 +97,7 @@ namespace UnitTests
             var tree = new Node(3);
 
             //action
-            TreeFunctions.Add(tree, new[] {1,4,5});
+            TreeFunctions.Add(tree, new[] {1, 4, 5});
 
             // assert values
             Assert.AreEqual(tree.Value, 3);

@@ -10,7 +10,9 @@ namespace Infrastructure.AsciiPrint
         private readonly int Infinity = 1 << 20;
         private readonly int[] Lprofile;
         private readonly int[] Rprofile;
+
         private readonly int Gap = 3;
+
         // used for printing next node in the same level, this is the x coordinate of the next char printed
         private int PrintNext;
 

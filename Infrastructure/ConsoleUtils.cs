@@ -8,10 +8,7 @@ namespace Infrastructure
         public static string GetNSpaces(int n)
         {
             var sb = new StringBuilder();
-            for (var i = 0; i < n; i++)
-            {
-                sb.Append(' ');
-            }
+            for (var i = 0; i < n; i++) sb.Append(' ');
 
             return sb.ToString();
         }
